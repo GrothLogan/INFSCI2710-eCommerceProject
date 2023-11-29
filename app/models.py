@@ -193,7 +193,8 @@ class Salesperson(Customer):
                       ("manager", "can change stock and list/delist products and delete them can also add associates"),
                        ( "region_manager","can view regional data and do things for the region can add stores and managers"),
                        )
-    
+    def __str__(self):
+        return self.username
     
 # Transaction Model
 class Transaction(models.Model):
