@@ -205,8 +205,8 @@ class Transaction(models.Model):
         ('Delivered', 'Delivered'),
     )
     
-    customer = models.ForeignKey(Customer, related_name='customer_transactions', on_delete=models.SET_NULL, null = True)
-    salesperson = models.ForeignKey(Salesperson, related_name='sales_transactions', on_delete=models.SET_NULL, null=True)
+    customer = models.ForeignKey(Customer, related_name='customer_transactions', on_delete=models.SET_NULL, null = True, blank=True)
+    salesperson = models.ForeignKey(Salesperson, related_name='sales_transactions', on_delete=models.SET_NULL, null=True, blank = True)
     date_ordered = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='Pending')
     total_price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
